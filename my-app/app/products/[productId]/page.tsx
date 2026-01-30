@@ -8,8 +8,13 @@ export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   const id = (await params).productId;
+  const title= await new Promise ((resolve)=>{
+    setTimeout(()=>{
+      resolve(`iPhone ${id}`);
+    }, 100);
+  })
   return {
-    title: `Product ${id}`,
+    title: `Product ${title}`,
   };
 };
 
